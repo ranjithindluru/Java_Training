@@ -1,24 +1,32 @@
 package com.atmAccounts;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class ATM {
-	private Map<Integer, Integer> accounts;
+
+	private int[][] accounts;
 	private double balance;
 
 	public ATM() {
-		accounts = new HashMap<>();
+		accounts = new int[20][10];
 		balance = 0;
 	}
 
 	public void createAccount(int accountNumber, int pin) {
-		accounts.put(accountNumber, pin);
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i][0] == 0) {
+				accounts[i][0] = accountNumber;
+				accounts[i][1] = pin;
+				return;
+			}
+		}
 	}
 
 	public boolean login(int accountNumber, int pin) {
-		Integer storedPIN = accounts.get(accountNumber);
-		return storedPIN != null && storedPIN == pin;
+		for (int i = 0; i < accounts.length; i++) {
+			if (accounts[i][0] == accountNumber && accounts[i][1] == pin) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public double checkBalance() {
