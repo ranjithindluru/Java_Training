@@ -29,11 +29,11 @@ public class MainOnlineBiddingSystem {
 	 * the corresponding methods.
 	 */
 	private static void showInitialMenu() {
+		System.out.println();
 		System.out.println("Welcome to the Online Bidding System!");
 		System.out.println("1. Login");
 		System.out.println("2. Create Account");
-		System.out.println("3. Add Items");
-		System.out.println("4. Exit");
+		System.out.println("3. Exit");
 		System.out.print("Choose an option: ");
 
 		@SuppressWarnings("resource")
@@ -48,8 +48,8 @@ public class MainOnlineBiddingSystem {
 			createUserAccount();
 			break;
 
-		case 4:
-			System.out.println("Goodbye!");
+		case 3:
+			System.out.println("Goodbye! Thankyou for using OnlineBiddingStstem, Visit again");
 			System.exit(0);
 			break;
 		default:
@@ -197,7 +197,8 @@ public class MainOnlineBiddingSystem {
 				break;
 			case 3:
 				// Logout
-				System.out.println("Goodbye!");
+				System.out.println("Logout Successfully...");
+				showInitialMenu();
 				break;
 			default:
 				System.out.println("Invalid option. Please choose a valid option.");
