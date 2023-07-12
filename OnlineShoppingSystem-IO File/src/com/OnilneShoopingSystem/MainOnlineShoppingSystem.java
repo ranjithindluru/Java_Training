@@ -24,7 +24,8 @@ public class MainOnlineShoppingSystem {
 			System.out.println("6. Remove a product from the shopping cart");
 			System.out.println("7. View shopping cart");
 			System.out.println("8. Place an order");
-			System.out.println("9. Exit");
+			System.out.println("9. Save Products and OrderHistory");
+			System.out.println("10. Exit");
 			System.out.println(" ");
 			System.out.print("Enter your choice: ");
 			System.out.println(" ");
@@ -113,7 +114,7 @@ public class MainOnlineShoppingSystem {
 					Order order = new Order(shoppingCart.getItems(), shoppingCart.getTotalPrice());
 					orderHistory.addOrder(order);
 					System.out.println("Order placed successfully.");
-					System.out.println("Order Confirmation Number: " + order.getConfirmationNumber());
+					System.out.println("Order Confirmation Number: " + Order.getNextConfirmationNumber());
 					System.out.println("Total Price: $" + order.getTotalPrice());
 
 					shoppingCart.clearCart();
@@ -128,9 +129,11 @@ public class MainOnlineShoppingSystem {
 				System.out.print("Enter the file name to save the order history: ");
 				String orderFileNames = scanner.nextLine();
 				orderHistory.saveOrderHistory(orderFileNames);
-
-				System.out.println("Exiting the program. Thank you for using the Online Shopping System!");
 				break;
+			case 10:
+				exit = true;
+				System.out.println("Good bye! Thank you for using the Online Shopping System!");
+                break;
 
 			default:
 				System.out.println("Invalid option. Please try again.");

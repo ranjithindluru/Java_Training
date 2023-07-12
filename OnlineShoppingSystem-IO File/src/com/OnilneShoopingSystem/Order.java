@@ -39,7 +39,19 @@ public class Order implements Serializable{
         return totalPrice;
     }
     
-    @Override
+    public static int getNextConfirmationNumber() {
+		return nextConfirmationNumber;
+	}
+
+
+
+	public static void setNextConfirmationNumber(int nextConfirmationNumber) {
+		Order.nextConfirmationNumber = nextConfirmationNumber;
+	}
+
+
+
+	@Override
     public String toString() {
         return "Order Confirmation Number: " + confirmationNumber +
                 ", Items: " + items +
